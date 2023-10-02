@@ -45,12 +45,13 @@ def create_city(state_id):
     state = storage.get(State, state_id)
     if state is None:
         abort(404)
-    if not request.get_json():
-        return jsonify({"error": "Not a JSON"}), 400
-    if 'name' not in request.get_json():
-        return jsonify({"error": "Missing name"}), 400
 
     data = request.get_json()
+    if not data:
+        return jsonify({"error": "Not a JSON"}), 400
+    if 'name' not in data:
+        return jsonify({"error": "Missing name"}), 400
+
     ct = City(**data)
     ct.state_id = state.id
     ct.save()
