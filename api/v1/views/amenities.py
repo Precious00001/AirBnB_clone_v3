@@ -1,4 +1,5 @@
-# api/v1/views/amenities.py
+#!/usr/bin/python3
+"""amenities.py"""
 
 from flask import Flask, jsonify, request, abort
 from api.v1.views import app_views
