@@ -1,11 +1,6 @@
 #!/usr/bin/python3
-""" Test .get() and .count() methods
-"""
-from models import storage
-from models.state import State
+import importlib
 
-print("All objects: {}".format(storage.count()))
-print("State objects: {}".format(storage.count(State)))
+app = importlib.import_module("api.v1.app")
 
-first_state_id = list(storage.all(State).values())[0].id
-print("First state: {}".format(storage.get(State, first_state_id)))
+print(app.__doc__)
