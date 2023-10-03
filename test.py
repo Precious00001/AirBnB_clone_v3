@@ -1,6 +1,12 @@
 #!/usr/bin/python3
-import importlib
+"""Testing documentation of a module
+"""
+from importlib import import_module
+import sys
 
-app = importlib.import_module("api.v1.app")
+m_imported = import_module(sys.argv[1])
 
-print(app.__doc__)
+if m_imported.__doc__ is None:
+    print("No module documentation", end="")
+else:
+    print("OK", end="")
